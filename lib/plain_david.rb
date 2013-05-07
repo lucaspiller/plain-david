@@ -6,7 +6,7 @@ module PlainDavid
   class << self
     def current_strategy
       return config.strategy if config.strategy
-      Strategies::MarkdownStrategy.new
+      Strategies::MarkdownStrategy
     end
 
     private
