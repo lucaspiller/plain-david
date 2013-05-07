@@ -1,5 +1,3 @@
-require 'html2markdown'
-
 module PlainDavid
   module ActionMailerExtensions
     extend ActiveSupport::Concern
@@ -48,8 +46,7 @@ module PlainDavid
     end
 
     def generate_text_body(html)
-      # TODO allow different plain text generation strategies
-      HTMLPage.new(:contents => html).markdown!
+      PlainDavid.current_strategy.new(html).convert!
     end
   end
 end
