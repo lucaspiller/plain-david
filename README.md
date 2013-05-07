@@ -14,6 +14,28 @@ Nothing. Just send emails as normal, and a text part will be automatically gener
 
 It works seamlessly with css inliners like [Roadie](https://github.com/kandadaboggu/roadie).
 
+## Conversion Strategies
+
+You can set your own conversion strategy. The default `MarkdownStrategy` converts the HTML to Markdown. If you want to use your own you just need to set the `strategy` option.
+
+For example, in your `application.rb`:
+
+```ruby
+class AwesomeStrategy
+  attr_accessor :html
+
+  def initialize(html)
+    @html = html
+  end
+
+  def convert!
+    @html.awesomize!
+  end
+end
+
+config.plain_david.strategy = AwesomeStrategy
+```
+
 ## Contributing
 
 * Fork the project.
