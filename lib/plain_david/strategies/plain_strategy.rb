@@ -28,6 +28,13 @@ module PlainDavid
         he = HTMLEntities.new
         txt = he.decode(txt)
 
+        # remove the head tag
+        txt.gsub!(/<head>.+?<\/head>/mi, "")
+        # remove style tags
+        txt.gsub!(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/mi, "")
+        # remove script tags
+        txt.gsub!(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/mi, "")
+
         # replace image by their alt attribute
         txt.gsub!(/<img.+?alt=\"([^\"]*)\"[^>]*\/>/i, '\1')
 
