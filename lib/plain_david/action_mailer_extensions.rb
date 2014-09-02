@@ -46,7 +46,7 @@ module PlainDavid
     end
 
     def generate_text_body(html)
-      PlainDavid.current_strategy.new(html).convert!
+      PlainDavid.current_strategy.new(html.to_str).convert!
     end
   end
 end
