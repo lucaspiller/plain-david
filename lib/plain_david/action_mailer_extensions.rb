@@ -2,19 +2,11 @@ module PlainDavid
   module ActionMailerExtensions
     extend ActiveSupport::Concern
 
-    included do
-      if method_defined?(:collect_responses)
-        alias_method_chain :collect_responses, :text_part
-      else
-        alias_method_chain :collect_responses_and_parts_order, :text_part
-      end
-    end
-
     protected
 
     # Rails 4
-    def collect_responses_with_text_part(headers, &block)
-      responses = collect_responses_without_text_part(headers, &block)
+    def collect_responses(headers, &block)
+      responses = super(headers, &block)
 
       html_part, text_part = detect_parts(responses)
       if html_part && !text_part
@@ -26,8 +18,8 @@ module PlainDavid
     end
 
     # Rails 3
-    def collect_responses_and_parts_order_with_text_part(headers, &block)
-      responses, order = collect_responses_and_parts_order_without_text_part(headers, &block)
+    def collect_responses_and_parts_order(headers, &block)
+      responses, order = super(headers, &block)
 
       html_part, text_part = detect_parts(responses)
       if html_part && !text_part

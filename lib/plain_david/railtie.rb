@@ -9,7 +9,7 @@ module PlainDavid
 
     initializer "plain_david.extend_action_mailer" do
       ActiveSupport.on_load(:action_mailer) do
-        include PlainDavid::ActionMailerExtensions
+        prepend PlainDavid::ActionMailerExtensions
       end
     end
   end
