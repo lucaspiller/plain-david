@@ -6,13 +6,15 @@ Plain David automatically generatess a text part for your HTML emails.
 
 Add the gem to Rails' Gemfile
 
-    gem 'plain-david', github: 'lucaspiller/plain-david'
+    gem 'plain-david'
 
 ## Usage
 
 Nothing. Just send emails as normal, and a text part will be automatically generated. The email will be changed from HTML to multipart like magic!
 
 It works seamlessly with css inliners like [Roadie](https://github.com/kandadaboggu/roadie).
+
+Works with Rails 3, 4 and 5.
 
 ## Conversion Strategies
 
@@ -48,4 +50,4 @@ MIT License. See `LICENSE` for details.
 
 ## Copyright
 
-Copyright (c) 2013 Luca Spiller.
+Copyright (c) 2013-2016 Luca Spiller.
