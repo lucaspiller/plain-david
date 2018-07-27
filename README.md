@@ -1,6 +1,6 @@
 # Plain David
 
-Plain David automatically generatess a text part for your HTML emails.
+Plain David automatically generates a text part for your HTML emails.
 
 ## Install
 
